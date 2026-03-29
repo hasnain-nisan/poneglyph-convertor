@@ -1,5 +1,7 @@
-﻿import * as XLSX from "xlsx";
+import * as XLSX from "xlsx";
 import type { SourceType } from "../types/converter";
+
+const WORKBOOK_EXTENSIONS = new Set(["xls", "xlsx"]);
 
 export function getFileExtension(fileName: string): string {
   const match = fileName.toLowerCase().match(/\.([^.]+)$/);
@@ -7,7 +9,17 @@ export function getFileExtension(fileName: string): string {
 }
 
 export function detectSourceType(file: File): SourceType {
-  return getFileExtension(file.name) === "csv" ? "csv" : "workbook";
+  const extension = getFileExtension(file.name);
+
+  if (extension === "csv") {
+    return "csv";
+  }
+
+  if (WORKBOOK_EXTENSIONS.has(extension)) {
+    return "workbook";
+  }
+
+  throw new Error("Unsupported file format. Please upload a CSV, XLS, or XLSX file.");
 }
 
 export function readWorkbook(file: File): Promise<XLSX.WorkBook> {

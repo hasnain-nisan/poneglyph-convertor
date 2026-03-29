@@ -1,7 +1,8 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { APP_NAME, DEFAULT_STATUS_MESSAGE, DEFAULT_TABLE_NAME, EMPTY_SUMMARY, IDLE_BUSY_STATE } from "./constants/app";
 import { BrandingFooter } from "./components/BrandingFooter";
 import { ControlPanel } from "./components/ControlPanel";
+import { ErrorToast } from "./components/ErrorToast";
 import { HeroSection } from "./components/HeroSection";
 import { LoaderOverlay } from "./components/LoaderOverlay";
 import { PreviewPanel } from "./components/PreviewPanel";
@@ -33,10 +34,25 @@ export default function App() {
   const [tableName, setTableName] = useState(DEFAULT_TABLE_NAME);
   const [statusMessage, setStatusMessage] = useState(DEFAULT_STATUS_MESSAGE);
   const [busyState, setBusyState] = useState<BusyState>(IDLE_BUSY_STATE);
+  const [toastMessage, setToastMessage] = useState("");
 
   useEffect(() => {
     document.title = APP_NAME;
   }, []);
+
+  useEffect(() => {
+    if (!toastMessage) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setToastMessage("");
+    }, 4200);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [toastMessage]);
 
   function showBusy(update: ProgressUpdate): void {
     setBusyState({ isBusy: true, ...update });
@@ -46,8 +62,22 @@ export default function App() {
     setBusyState(IDLE_BUSY_STATE);
   }
 
+  function showError(message: string): void {
+    setStatusMessage(message);
+    setToastMessage(message);
+  }
+
   async function handleFileSelected(file: File): Promise<void> {
-    const sourceType = detectSourceType(file);
+    let sourceType: SourceType;
+
+    try {
+      sourceType = detectSourceType(file);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unsupported file format.";
+      setFileContext(INITIAL_FILE_CONTEXT);
+      showError(message);
+      return;
+    }
 
     setFileContext({
       file,
@@ -59,6 +89,7 @@ export default function App() {
       },
     });
     setStatusMessage(`Reading ${file.name}...`);
+    setToastMessage("");
     showBusy({
       title: `Reading ${sourceType.toUpperCase()} file`,
       detail: "Preparing the Poneglyph scan...",
@@ -83,7 +114,7 @@ export default function App() {
     } catch (error) {
       const message = error instanceof Error ? error.message : "Could not read that file.";
       setFileContext(INITIAL_FILE_CONTEXT);
-      setStatusMessage(message);
+      showError(message);
     } finally {
       hideBusy();
     }
@@ -109,7 +140,7 @@ export default function App() {
       setStatusMessage(`${selectedFormat.toUpperCase()} download is ready for ${fileContext.fileName}.`);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Could not create the converted file.";
-      setStatusMessage(message);
+      showError(message);
     } finally {
       hideBusy();
     }
@@ -142,8 +173,8 @@ export default function App() {
         <BrandingFooter />
       </main>
 
+      {toastMessage ? <ErrorToast message={toastMessage} onDismiss={() => setToastMessage("")} /> : null}
       <LoaderOverlay busyState={busyState} />
     </div>
   );
 }
-

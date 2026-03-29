@@ -1,4 +1,4 @@
-﻿import { Upload, Sparkles } from "lucide-react";
+import { Upload, Sparkles } from "lucide-react";
 import { useRef, useState } from "react";
 import { ACCEPTED_FILE_TYPES, FEATURE_CALLOUTS } from "../constants/app";
 
@@ -80,8 +80,8 @@ export function UploadDropzone({ fileName, disabled, onFileSelected }: UploadDro
         <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
           <div className="space-y-4">
             <p className="max-w-2xl text-sm leading-7 text-slate-300">
-              Import a CSV, XLS, or XLSX file. Large CSV voyages are processed in chunks to keep the browser smooth
-              during previewing and exporting.
+              Import a CSV, XLS, or XLSX file. Any other file type is rejected immediately with an error toast so the
+              conversion flow stays predictable.
             </p>
             <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-slate-300/80">
               {FEATURE_CALLOUTS.map((callout) => (
@@ -103,11 +103,10 @@ export function UploadDropzone({ fileName, disabled, onFileSelected }: UploadDro
 
           <div className="rounded-3xl border border-gold-300/20 bg-slate-950/60 px-5 py-4 text-right shadow-xl shadow-black/15">
             <p className="text-xs uppercase tracking-[0.28em] text-gold-200/70">Drop Zone</p>
-            <p className="mt-2 text-sm font-medium text-parchment-100">Click or drag file</p>
+            <p className="mt-2 text-sm font-medium text-parchment-100">CSV, XLS, XLSX only</p>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
