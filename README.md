@@ -10,8 +10,10 @@
 
 <p align="center">
   <a href="https://github.com/hasnain-nisan">GitHub</a>
-  ·
+  |
   <a href="https://www.linkedin.com/in/hasnain-nisan1/">LinkedIn</a>
+  |
+  <a href="https://poneglyph-convertor.netlify.app/">Live Demo</a>
 </p>
 
 ## Overview
@@ -65,6 +67,12 @@ npm run dev
 ```
 
 Open the local Vite URL shown in the terminal to use the app.
+
+## Live Demo
+
+Explore the deployed app here:
+
+https://poneglyph-convertor.netlify.app/
 
 ## Production Build
 
