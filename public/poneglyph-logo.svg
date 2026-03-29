@@ -1,0 +1,60 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Poneglyph Convertor Logo</title>
+  <desc>One Piece-inspired developer tool logo with a stone glyph icon and wordmark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1420" />
+      <stop offset="0.55" stop-color="#152231" />
+      <stop offset="1" stop-color="#0A1019" />
+    </linearGradient>
+    <linearGradient id="stone" x1="94" y1="58" x2="302" y2="322" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#557483" />
+      <stop offset="1" stop-color="#2A3D49" />
+    </linearGradient>
+    <linearGradient id="gold" x1="302" y1="88" x2="302" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3CF7A" />
+      <stop offset="1" stop-color="#B68431" />
+    </linearGradient>
+    <filter id="shadow" x="30" y="24" width="360" height="360" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#02060D" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow" x="190" y="92" width="224" height="224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="420" rx="36" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <path d="M0 70H1200" stroke="#F3CF7A" stroke-width="2" stroke-dasharray="8 16"/>
+    <path d="M0 350H1200" stroke="#F3CF7A" stroke-width="2" stroke-dasharray="8 16"/>
+    <path d="M90 0V420" stroke="#EAD7A1" stroke-width="1.5" stroke-dasharray="10 12"/>
+    <path d="M1120 0V420" stroke="#EAD7A1" stroke-width="1.5" stroke-dasharray="10 12"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="66" y="52" width="236" height="292" rx="42" fill="url(#stone)" stroke="#8AA0A9" stroke-width="4"/>
+    <rect x="86" y="72" width="196" height="252" rx="28" stroke="#ACC0C7" stroke-opacity="0.42" stroke-width="3" stroke-dasharray="7 10"/>
+    <path d="M112 120H180" stroke="#CAD4D8" stroke-opacity="0.58" stroke-width="7" stroke-linecap="round"/>
+    <path d="M112 158H238" stroke="#CAD4D8" stroke-opacity="0.45" stroke-width="7" stroke-linecap="round"/>
+    <path d="M112 196H210" stroke="#CAD4D8" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round"/>
+    <path d="M112 234H172" stroke="#CAD4D8" stroke-opacity="0.42" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="220" cy="240" r="42" fill="#102133" stroke="url(#gold)" stroke-width="6"/>
+    <circle cx="220" cy="240" r="25" stroke="#F4DB97" stroke-opacity="0.5" stroke-width="3"/>
+    <path d="M220 208L228 230L250 240L228 250L220 272L212 250L190 240L212 230L220 208Z" fill="url(#gold)" filter="url(#glow)"/>
+    <path d="M174 96L186 112" stroke="#F3CF7A" stroke-opacity="0.9" stroke-width="5" stroke-linecap="round"/>
+    <path d="M162 112H186" stroke="#F3CF7A" stroke-opacity="0.9" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="362" y="138" fill="#F3CF7A" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" letter-spacing="10">GRAND LINE DATA FORGE</text>
+  <text x="362" y="226" fill="#F7F0DB" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700">Poneglyph Convertor</text>
+  <text x="362" y="282" fill="#C6D0D7" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="28">Excel and CSV cargo decoded into portable JSON and SQL.</text>
+  <g>
+    <rect x="362" y="322" width="190" height="42" rx="21" fill="#172334" stroke="#F3CF7A" stroke-opacity="0.4"/>
+    <text x="391" y="349" fill="#F8E9B6" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="18" font-weight="700">Chunked Parsing</text>
+    <rect x="568" y="322" width="180" height="42" rx="21" fill="#172334" stroke="#F3CF7A" stroke-opacity="0.4"/>
+    <text x="613" y="349" fill="#F8E9B6" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="18" font-weight="700">JSON + SQL</text>
+    <rect x="764" y="322" width="212" height="42" rx="21" fill="#172334" stroke="#F3CF7A" stroke-opacity="0.4"/>
+    <text x="797" y="349" fill="#F8E9B6" font-family="'Trebuchet MS', 'Segoe UI', sans-serif" font-size="18" font-weight="700">Poneglyph-clean data</text>
+  </g>
+</svg>

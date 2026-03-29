@@ -1,0 +1,37 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Poneglyph Convertor Favicon</title>
+  <desc>A stone poneglyph-inspired icon with carved lines and a compass core.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#213145" />
+      <stop offset="1" stop-color="#0B1220" />
+    </linearGradient>
+    <linearGradient id="stone" x1="52" y1="40" x2="204" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4C6774" />
+      <stop offset="1" stop-color="#263844" />
+    </linearGradient>
+    <linearGradient id="gold" x1="128" y1="58" x2="128" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5D27A" />
+      <stop offset="1" stop-color="#C69133" />
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="64" fill="url(#bg)"/>
+  <rect x="42" y="34" width="172" height="188" rx="34" fill="url(#stone)" stroke="#7F9AA5" stroke-width="4"/>
+  <rect x="57" y="49" width="142" height="158" rx="24" stroke="#8CA7AF" stroke-opacity="0.45" stroke-width="2.5" stroke-dasharray="5 7"/>
+  <path d="M78 84H120" stroke="#B9C8CF" stroke-opacity="0.55" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 110H178" stroke="#B9C8CF" stroke-opacity="0.45" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 136H150" stroke="#B9C8CF" stroke-opacity="0.5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 162H118" stroke="#B9C8CF" stroke-opacity="0.4" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="164" cy="160" r="30" fill="#102133" stroke="url(#gold)" stroke-width="5"/>
+  <circle cx="164" cy="160" r="18" stroke="#F4DB97" stroke-opacity="0.5" stroke-width="2.5"/>
+  <path d="M164 137L170 154L187 160L170 166L164 183L158 166L141 160L158 154L164 137Z" fill="url(#gold)" filter="url(#glow)"/>
+  <path d="M128 58L138 72" stroke="#F5D27A" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round"/>
+  <path d="M118 72L138 72" stroke="#F5D27A" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round"/>
+</svg>
